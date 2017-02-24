@@ -15,6 +15,9 @@ class BandInput extends Component {
     e.preventDefault();
 
     this.props.store.dispatch({type: "ADD_BAND", payload: this.state.text})
+    this.setState({
+      text: ''
+    })
   }
 
   handleChange(e){
@@ -23,9 +26,8 @@ class BandInput extends Component {
     })
   }
   render(){
-    const {store} = this.props;
     return (<form onSubmit={(event) => this.handleSubmit(event)}>
-        <input type="text" value={this.state} onChange={(e) => this.handleChange(e)} />
+        <input type="text" value={this.state.text} onChange={(e) => this.handleChange(e)} />
       </form>
     )
   }
